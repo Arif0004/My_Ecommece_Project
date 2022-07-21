@@ -214,93 +214,93 @@
 
         // // delete
 
-        // $('body').on('click', '#deleteRow', function(e) {
-        //     e.preventDefault()
-        //     const swalWithBootstrapButtons = Swal.mixin({
-        //         customClass: {
-        //             confirmButton: 'btn btn-success',
-        //             cancelButton: 'btn btn-danger'
-        //         },
-        //         buttonsStyling: false
-        //     })
+        $('body').on('click', '#deleteRow', function(e) {
+            e.preventDefault()
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
 
-        //     swalWithBootstrapButtons.fire({
-        //         title: 'Are you sure?',
-        //         text: "You won't be able to revert this!",
-        //         icon: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonText: 'Yes, delete it!',
-        //         cancelButtonText: 'No, cancel!',
-        //         reverseButtons: true
-        //     }).then((result) => {
-        //         if (result.isConfirmed) {
-        //             let id = $(this).attr('data-id');
-        //             // console.log(id);
-        //             // return
-        //             const url = `${admin_base_url}/sub-cat/${id}`;
-        //             axios.delete(url)
-        //                 .then(res => {
-        //                     getAllSubCategory();
-        //                 })
-        //             swalWithBootstrapButtons.fire(
-        //                 'Deleted!',
-        //                 'Your file has been deleted.',
-        //                 'success'
-        //             )
-        //         } else if (
-        //             /* Read more about handling dismissals below */
-        //             result.dismiss === Swal.DismissReason.cancel
-        //         ) {
-        //             swalWithBootstrapButtons.fire(
-        //                 'Cancelled',
-        //                 'Your imaginary file is safe :)',
-        //                 'error'
-        //             )
-        //         }
-        //     })
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let id = $(this).attr('data-id');
+                    // console.log(id);
+                    // return
+                    const url = `${admin_base_url}/sub-cat/${id}`;
+                    axios.delete(url)
+                        .then(res => {
+                            getAllSubCategory();
+                        })
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
 
-        // })
+        })
 
         // // edit
-        // $('body').on('click', '#editRow', function(e) {
-        //     e.preventDefault()
-        //     let id = $(this).attr('data-id');
-        //     // console.log(id)
-        //     // return
-        //     const url = `${admin_base_url}/sub-cat/${id}`;
-        //     axios.get(url)
-        //         .then(res => {
-        //             let {
-        //                 data
-        //             } = res
-        //             $('#edit_name').val(data.name)
-        //             $('#edit_id').val(data.id)
-        //             $('#edit_category_id').val(data.category_id)
-        //             // console.log(data);
-        //         });
-        // });
+        $('body').on('click', '#editRow', function(e) {
+            e.preventDefault()
+            let id = $(this).attr('data-id');
+            // console.log(id)
+            // return
+            const url = `${admin_base_url}/sub-cat/${id}`;
+            axios.get(url)
+                .then(res => {
+                    let {
+                        data
+                    } = res
+                    $('#edit_name').val(data.name)
+                    $('#edit_id').val(data.id)
+                    $('#edit_category_id').val(data.category_id)
+                    // console.log(data);
+                });
+        });
 
         // // update
 
-        // $('body').on('submit', '#editForm', function(e) {
-        //     e.preventDefault()
-        //     let name = $('#edit_name').val()
-        //     let slug = $('#edit_name').val()
-        //     let id = $('#edit_id').val()
-        //     let category_id = $('#edit_category_id').val()
-        //     let url = `${admin_base_url}/sub-cat/update/${id}`
+        $('body').on('submit', '#editForm', function(e) {
+            e.preventDefault()
+            let name = $('#edit_name').val()
+            let slug = $('#edit_name').val()
+            let id = $('#edit_id').val()
+            let category_id = $('#edit_category_id').val()
+            let url = `${admin_base_url}/sub-cat/update/${id}`
 
-        //     axios.post(url, {
-        //         name,
-        //         category_id,
-        //         slug
-        //     }).then(res => {
-        //         getAllSubCategory();
-        //         setSuccessAlert('Data Update Successfully!')
-        //         $('#editModal').modal('toggle')
-        //     }).catch(err => {
+            axios.post(url, {
+                name,
+                category_id,
+                slug
+            }).then(res => {
+                getAllSubCategory();
+                setSuccessAlert('Data Update Successfully!')
+                $('#editModal').modal('toggle')
+            }).catch(err => {
 
-        //     })
-        // })
+            })
+        })
     </script>
 @endpush

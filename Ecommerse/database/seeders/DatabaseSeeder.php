@@ -21,5 +21,10 @@ class DatabaseSeeder extends Seeder
             'password'=>bcrypt('password')
 
         ]);
+
+        $this->call([
+            ColorSeeder::class, SizeSeeder::class
+
+        ]);
     }
 }

@@ -46,6 +46,7 @@ class SubCategoryController extends Controller
 
     public function store(Request $request)
     {
+
         $category = SubCategory::create([
             'name' => $request->name,
             'slug' => $request->name,
@@ -92,10 +93,10 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // public function update(Request $request, SubCategory $id)
-    // {
-    //     $id->update($request->all());
-    // }
+    public function update(Request $request, SubCategory $id)
+    {
+        $id->update($request->all());
+    }
 
     /**
      * Remove the specified resource from storage.

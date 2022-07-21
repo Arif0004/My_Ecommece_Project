@@ -82,6 +82,15 @@
             </a>
            </li>
 
+           <li class="nav-item menu-open">
+            <a href="{{route('admin.product.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+               Product
+              </p>
+            </a>
+           </li>
+
           <li class="nav-item">
             <form action="{{route('admin.logout')}}" method="POST">
                 @csrf
