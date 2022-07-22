@@ -38,6 +38,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::get('/',[ProductController::class,'index'])->name('index');
+        Route::post('/store',[ProductController::class, 'store'])->name('store');
+        Route::get('/create',[ProductController::class, 'create'])->name('create');
+        Route::get('/view/{slug}', [ProductController::class, 'view'])->name('view');
+        Route::get('/delete/{slug}', [ProductController::class, 'delete'])->name('delete');
+        Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('edit');
+        Route::get('/categories/{id}', [ProductController::class, 'categories'])->name('categories');
+
+        Route::post('active/{product}', [ProductController::class, 'active'])->name('active');
+        Route::post('inActive/{product}', [ProductController::class, 'inActive'])->name('inActive');
+
+        Route::post('update/{product}', [ProductController::class, 'update'])->name('update');
 
     });
 

@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->foreignId('subcategorie_id')->constrained('subcategories')->onDelete('cascade');
+            $table->foreignId('color_id')->constrained('colors')->onDelete('cascade');
+            $table->foreignId('size_id')->constrained('sizes')->onDelete('cascade');
+            $table->string('name');
+            $table->string('slug');
+            $table->string('image');
+            $table->float('price');
+            $table->float('sell_price');
+            $table->boolean('status')->default(false);
+            $table->text('description');
             $table->timestamps();
         });
     }
