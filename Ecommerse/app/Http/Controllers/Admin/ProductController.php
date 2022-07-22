@@ -67,6 +67,32 @@ class ProductController extends Controller
         ]);
     }
 
+    public function store(ProductRequest $request)
+    {
+        //return $request->all();
+        //return Product::find(1)->sliders;
+        $product = Product::create([
+            'name' => $request->name,
+            'slug' => $request->name,
+            'category_id' => $request->category_id,
+            'subcategory_id' => $request->subcategory_id,
+            'color_id' => $request->color_id,
+            'size_id' => $request->size_id,
+            'description' => $request->description,
+            'price' => $request->price,
+            'sell_price' => $request->sell_price,
+            'image' => File::upload($request->file('image'), 'product'),
+        ]);
+        
+        foreach ($request->file('slider_images') as $image) {
+            $product->sliders()->create([
+                'image' => File::upload($image, 'product/slider')
+            ]);
+        }
+        session()->flash('success', 'Product Added Successfully!');
+        return redirect()->route('admin.product.index');
+    }
+
    
 
    

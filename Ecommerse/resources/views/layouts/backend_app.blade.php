@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="{{asset('backend')}}/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('backend')}}/plugins/summernote/summernote-bs4.min.css">
+  <!--tostr-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+  <!--data table css-->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
   @stack('css')
 </head>
 <body class="">
@@ -72,8 +77,21 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!--sweet alert-->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--toastr-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+  @if (Session::has('success'))
+      toastr.success("{{ Session::get('success') }}", 'Success!')
+  @elseif(Session::has('warning'))
+      toastr.warning("{{ Session::get('warning') }}", 'Warning!')
+  @elseif(Session::has('error'))
+      toastr.error("{{ Session::get('error') }}", 'Error!')
+  @endif
+</script>
 <!--custom js-->
 <script src="{{asset('custom.js')}}"></script>
+<!--data table js-->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
 @stack('js')
 </body>

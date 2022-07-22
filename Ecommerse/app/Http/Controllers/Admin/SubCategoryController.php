@@ -67,12 +67,12 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function view(SubCategory $id)
-    {
-         return $id->load('category');
-         //return 4444;
+    // public function view(SubCategory $id)
+    // {
+    //      return $id->load('category');
+    //      //return 4444;
 
-    }
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -93,10 +93,10 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, SubCategory $id)
-    {
-        $id->update($request->all());
-    }
+    // public function update(Request $request, SubCategory $id)
+    // {
+    //     $id->update($request->all());
+    // }
 
     /**
      * Remove the specified resource from storage.

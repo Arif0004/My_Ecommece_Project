@@ -36,10 +36,10 @@
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for=""><b>Sub Category : </b></label>
-                        <select name="subcategorie_id" id="subcategorie_id" class="form-control">
+                        <select name="subcategory_id" id="subcategory_id" class="form-control">
                             <option value="">Select Sub Category</option>
                         </select>
-                        @error('category_id')
+                        @error('subcategory_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -120,7 +120,7 @@
                 res.data.data.forEach(element => {
                     html += "<option value=" + element.id + ">" + element.name + "</option>"
                 });
-                $('#subcategorie_id').html(html)
+                $('#subcategory_id').html(html)
             })
         })
     </script>

@@ -56,6 +56,7 @@
             </table>
         </div>
     </div>
+   
 @stop
 
 @push('js')
