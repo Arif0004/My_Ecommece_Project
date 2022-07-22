@@ -22,6 +22,7 @@
                     <th>Category</th>
                     <td>{{ $product->category->name }}</td>
                 </tr>
+                
                 <tr>
                     <th>Image</th>
                     <td><img src="{{ asset($product->image) }}" alt="" width="100px"></td>
@@ -31,9 +32,14 @@
                     <th>description</th>
                     <td>{{ $product->description }}</td>
                 </tr>
+        
                 <tr>
-                    <th>Name</th>
-                    <td>{{ $product->name }}</td>
+                    <th>Color</th>
+                    <td>{{ $product->color->name }}</td>
+                </tr>
+                <tr>
+                    <th>Size</th>
+                    <td>{{ $product->size->name }}</td>
                 </tr>
             </table>
 

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,5 +30,6 @@ class DatabaseSeeder extends Seeder
             SubCatSeeder::class
 
         ]);
+        Product::factory(25)->create();
     }
 }
